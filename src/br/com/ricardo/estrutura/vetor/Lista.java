@@ -16,7 +16,7 @@ public class Lista<T> {
         this.tamanho = 0;
     }
 
-    public boolean contem (T elemento){
+    public boolean contem(T elemento) {
         for (T t : elementos) {
             if (elemento == t)
                 return true;
@@ -35,20 +35,20 @@ public class Lista<T> {
         }
     }
 
-    public boolean add(int posicao, T elemento){
+    public boolean add(int posicao, T elemento) {
         isPosicaoValida(posicao);
         aumentaCapacidade();
-        for (int i = tamanho-1; i >= posicao; i--){
-            elementos[i+1] = elementos[i];
+        for (int i = tamanho - 1; i >= posicao; i--) {
+            elementos[i + 1] = elementos[i];
         }
         elementos[posicao] = elemento;
         tamanho++;
         return true;
     }
 
-    private void aumentaCapacidade(){
-        if (tamanho == elementos.length){
-            T[] elementosNovos = (T[]) new Object[elementos.length*2];
+    private void aumentaCapacidade() {
+        if (tamanho == elementos.length) {
+            T[] elementosNovos = (T[]) new Object[elementos.length * 2];
             System.arraycopy(elementos, 0, elementosNovos, 0, tamanho);
             elementos = elementosNovos;
         }
@@ -65,7 +65,7 @@ public class Lista<T> {
         }
     }
 
-    public int busca(Object elemento){
+    public int busca(Object elemento) {
         for (int i = 0; i < tamanho; i++) {
             if (elementos[i].equals(elemento))
                 return i;
@@ -73,10 +73,10 @@ public class Lista<T> {
         throw new IllegalArgumentException("O elemento informado não existe.");
     }
 
-    public void remove(int posicao){
+    public void remove(int posicao) {
         isPosicaoValida(posicao);
-        for (int i = posicao; i < tamanho-1; i++) {
-            elementos[i] = elementos[i+1];
+        for (int i = posicao; i < tamanho - 1; i++) {
+            elementos[i] = elementos[i + 1];
         }
         tamanho--;
     }
@@ -91,10 +91,10 @@ public class Lista<T> {
         s.append("[");
         for (int i = 0; i < tamanho - 1; i++) {
             s.append(elementos[i])
-                .append(", ");
+                    .append(", ");
         }
 
-        if (tamanho > 0 ){
+        if (tamanho > 0) {
             s.append(elementos[tamanho - 1]);
         }
         s.append("]");
@@ -104,5 +104,10 @@ public class Lista<T> {
 
     public int ultimoIndice() {
         return tamanho - 1;
+    }
+
+    public boolean remove(T elemento) {
+        remove(busca(elemento));
+        return true;
     }
 }
