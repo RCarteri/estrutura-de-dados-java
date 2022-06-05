@@ -114,4 +114,8 @@ public class Lista<T> {
     public T obtem(int i) {
         return elementos[i];
     }
+
+    public void limpar() {
+        tamanho = 0;
+    }
 }
