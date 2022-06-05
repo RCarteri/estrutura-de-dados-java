@@ -110,4 +110,8 @@ public class Lista<T> {
         remove(busca(elemento));
         return true;
     }
+
+    public T obtem(int i) {
+        return elementos[i];
+    }
 }
