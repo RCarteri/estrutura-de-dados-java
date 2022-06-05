@@ -16,7 +16,7 @@ public class Ex06 {
         System.out.println("contem() " + lista.contem(c));
         System.out.println("busca(posicao) " + lista.busca(1));
         System.out.println("busca(elemento) " + lista.busca(c));
-        System.out.println("ultimoIndice() " + lista.ultimoIndice());
+        System.out.println("ultimoIndice() " + lista.ultimoIndice(c));
         System.out.println("getTamanho() " + lista.getTamanho());
         System.out.println("remove(posicao) " + lista.remove(11));
         System.out.println("obtem(posicao) " + lista.obtem(11));

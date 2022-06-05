@@ -99,8 +99,13 @@ public class Lista<T> {
         return s.toString();
     }
 
-    public int ultimoIndice() {
-        return tamanho - 1;
+    public int ultimoIndice(T elemento) {
+        for (int i=this.tamanho-1; i>=0; i--){
+            if (this.elementos[i].equals(elemento)){
+                return i;
+            }
+        }
+        return -1;
     }
 
     public boolean removeElemento(T elemento) {

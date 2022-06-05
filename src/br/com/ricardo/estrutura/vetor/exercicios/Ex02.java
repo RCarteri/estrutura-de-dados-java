@@ -8,9 +8,8 @@ public class Ex02 {
         Lista<String> lista = new Lista<String>(6);
 
         lista.add("elemento 1");
-        System.out.println(lista.ultimoIndice());
-        lista.add("elemento 2");
+        lista.add("elemento 1");
         lista.add("elemento 3");
-        System.out.println(lista.ultimoIndice());
+        System.out.println(lista.ultimoIndice("elemento 1"));
     }
 }
