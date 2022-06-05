@@ -101,4 +101,8 @@ public class Lista<T> {
 
         return s.toString();
     }
+
+    public int ultimoIndice() {
+        return tamanho - 1;
+    }
 }
