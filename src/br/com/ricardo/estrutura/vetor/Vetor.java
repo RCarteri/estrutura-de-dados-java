@@ -41,9 +41,7 @@ public class Vetor {
     }
 
     public boolean add(int posicao, String elemento){
-        if (!(posicao >= 0 && posicao < tamanho)) {
-            throw new IllegalArgumentException("Posição inválida.");
-        }
+        isPosicaoValida(posicao);
         aumentaCapacidade();
         for (int i = tamanho-1; i >= posicao; i--){
             elementos[i+1] = elementos[i];
@@ -56,18 +54,20 @@ public class Vetor {
     private void aumentaCapacidade(){
         if (tamanho == elementos.length){
             String[] elementosNovos = new String[elementos.length*2];
-            for (int i = 0; i < tamanho; i++) {
-                elementosNovos[i] = elementos[i];
-            }
+            System.arraycopy(elementos, 0, elementosNovos, 0, tamanho);
             elementos = elementosNovos;
         }
     }
 
     public String busca(int posicao) {
+        isPosicaoValida(posicao);
+        return elementos[posicao];
+    }
+
+    private void isPosicaoValida(int posicao) {
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida.");
         }
-        return elementos[posicao];
     }
 
     public int busca(String elemento){
@@ -75,7 +75,15 @@ public class Vetor {
             if (elementos[i].equals(elemento))
                 return i;
         }
-        return -1;
+        throw new IllegalArgumentException("O elemento informado não existe.");
+    }
+
+    public void remove(int posicao){
+        isPosicaoValida(posicao);
+        for (int i = posicao; i < tamanho-1; i++) {
+            elementos[i] = elementos[i+1];
+        }
+        tamanho--;
     }
 
     public int getTamanho() {
