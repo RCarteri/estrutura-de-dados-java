@@ -16,6 +16,14 @@ public class Lista<T> {
         this.tamanho = 0;
     }
 
+    public boolean contem (T elemento){
+        for (T t : elementos) {
+            if (elemento == t)
+                return true;
+        }
+        return false;
+    }
+
     public boolean add(T elemento) {
         aumentaCapacidade();
         if (this.tamanho < this.elementos.length) {
