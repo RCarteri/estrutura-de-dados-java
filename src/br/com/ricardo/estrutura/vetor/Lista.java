@@ -17,11 +17,7 @@ public class Lista<T> {
     }
 
     public boolean contem(T elemento) {
-        for (T t : elementos) {
-            if (elemento == t)
-                return true;
-        }
-        return false;
+        return busca(elemento) > -1;
     }
 
     public boolean add(T elemento) {
@@ -73,12 +69,13 @@ public class Lista<T> {
         throw new IllegalArgumentException("O elemento informado não existe.");
     }
 
-    public void remove(int posicao) {
+    public boolean remove(int posicao) {
         isPosicaoValida(posicao);
         for (int i = posicao; i < tamanho - 1; i++) {
             elementos[i] = elementos[i + 1];
         }
         tamanho--;
+        return true;
     }
 
     public int getTamanho() {
@@ -106,16 +103,17 @@ public class Lista<T> {
         return tamanho - 1;
     }
 
-    public boolean remove(T elemento) {
+    public boolean removeElemento(T elemento) {
         remove(busca(elemento));
         return true;
     }
 
-    public T obtem(int i) {
-        return elementos[i];
+    public T obtem(int posicao) {
+        return elementos[posicao];
     }
 
-    public void limpar() {
+    public boolean limpar() {
         tamanho = 0;
+        return true;
     }
 }

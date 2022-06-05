@@ -11,7 +11,7 @@ public class Ex03 {
         lista.add("elemento 2");
         lista.add("elemento 3");
         System.out.println(lista);
-        lista.remove("elemento 7");
+        lista.removeElemento("elemento 7");
         System.out.println(lista);
     }
 }
